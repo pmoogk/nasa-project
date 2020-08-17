@@ -2,8 +2,6 @@
 import fetch from 'node-fetch';
 
 const stripQuotes = value => {
-  console.log( "value=", value);
-  
   return value.startsWith( '"') ? value.substring(1, value.length-1) : value;
 }
 
