@@ -1,8 +1,14 @@
 // This code below provides the services to fetch the photo data.
 import fetch from 'node-fetch';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const USER_ID = process.env.REACT_APP_USER_ID;
+const stripQuotes = value => {
+  console.log( "value=", value);
+  
+  return value.startsWith( '"') ? value.substring(1, value.length-1) : value;
+}
+
+const API_KEY = stripQuotes(process.env.REACT_APP_API_KEY);
+const USER_ID = stripQuotes(process.env.REACT_APP_USER_ID);
 
 const allUrl =
   'https://api.flickr.com/services/rest/?' +
@@ -26,6 +32,8 @@ export async function getPhotosInfo({
   pageSize,
   sortDirection,
 }) {
+  //console.log( "argv:", process.argv);
+
   let searchAll = searchText === '' && startDate === null && endDate === null;
   let url = searchAll ? allUrl : searchUrl;
 
@@ -47,6 +55,7 @@ export async function getPhotosInfo({
     url = `${url}&max_taken_date=${getDateString(endDate)}`;
   }
 
+  console.log( "url=", url);
   // Get the first page which will contain the total number of pages that we
   // need to get
   let pageResult = await getPhotoInfo(url);
@@ -61,6 +70,7 @@ async function getPhotoInfo(url) {
     let response = await fetch(url);
     let data = await response.json();
 
+    console.log( "Data=", data);
     result.total = parseInt(data.photos.total);
 
     // Grab the data we want out of the json.
