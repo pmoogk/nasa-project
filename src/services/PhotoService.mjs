@@ -30,7 +30,6 @@ export async function getPhotosInfo({
   pageSize,
   sortDirection,
 }) {
-  //console.log( "argv:", process.argv);
 
   let searchAll = searchText === '' && startDate === null && endDate === null;
   let url = searchAll ? allUrl : searchUrl;
@@ -53,8 +52,7 @@ export async function getPhotosInfo({
     url = `${url}&max_taken_date=${getDateString(endDate)}`;
   }
 
-  console.log( "url=", url);
-  // Get the first page which will contain the total number of pages that we
+   // Get the first page which will contain the total number of pages that we
   // need to get
   let pageResult = await getPhotoInfo(url);
 
@@ -68,7 +66,6 @@ async function getPhotoInfo(url) {
     let response = await fetch(url);
     let data = await response.json();
 
-    console.log( "Data=", data);
     result.total = parseInt(data.photos.total);
 
     // Grab the data we want out of the json.
