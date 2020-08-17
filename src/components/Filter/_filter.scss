@@ -1,0 +1,28 @@
+.filter__container {
+  display: flex;
+}
+
+.filter__container .bx--form-item {
+  align-self: center;
+}
+
+.filter__label {
+  @include carbon--type-style('productive-heading-02');
+  margin-right: $spacing-04;
+}
+
+.filter__item {
+  align-self: center;
+}
+
+.filter__range_label {
+  min-width: 90px;
+  margin-left: $spacing-04;
+  margin-right: $spacing-04;
+}
+
+.filter__form {
+  display: flex;
+  flex-direction: row;
+}
+

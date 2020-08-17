@@ -1,0 +1,24 @@
+.photos__container {
+    box-sizing: border-box;
+    height: 525px;
+    overflow-y: auto;
+  }
+
+  .photos__message_container {
+      display:flex;
+      justify-content: center;
+  }
+
+  .photos__message {
+    margin-top: $spacing-10;
+    width: 500px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  svg.photos__error {
+    fill: red;
+    padding-top: $spacing-04;
+    margin-right: $spacing-04;
+  }
+

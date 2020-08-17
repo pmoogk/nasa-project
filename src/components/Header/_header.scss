@@ -1,0 +1,33 @@
+.header__title {
+  @include carbon--type-style('productive-heading-05');
+  margin: $spacing-04;
+  text-align: center;
+}
+
+.header__description {
+  @include carbon--type-style('productive-heading-02');
+  align-self: center;
+  width: 600px;
+  text-align: center;
+  margin-bottom: $spacing-04;
+}
+
+.header__container {
+  background: lightBlue;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding-bottom: $spacing-04;
+}
+
+.header__searchButton {
+  margin-left: $spacing-04;
+  align-self: center;
+}
+
+.header__filter {
+  display: flex;
+  align-items: flex-start;
+  align-self: center;
+}
